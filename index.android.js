@@ -9,7 +9,7 @@ class FlexDims extends Component {
 
   onAdd(item) {
     console.log("index.android.js: onAdd()");
-
+    console.log("The item is going to be added. ");
   }
 
   render() {

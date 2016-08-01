@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, TextInput, View, Image } from 'react-native';
+import Button from 'react-native-button';
 
 class TextBarAdd extends Component {
   constructor(props) {
@@ -21,7 +22,12 @@ class TextBarAdd extends Component {
         />
 
         <View style={{flex:2, justifyContent: 'center', flexDirection:'row'}}>
-          <Image source={pic} style={{height:24,width:24}} onClick={ () => {console.log("clicked button"); this.props.onAdd({text : 'hard text'});} }/>
+          <Button
+             style={{fontSize: 20, color: 'green'}}
+             styleDisabled={{color: 'red'}}
+             onPress={() => this.props.onAdd({text : 'Button press'})}>
+             Press Me!
+         </Button>
         </View>
       </View>
 
