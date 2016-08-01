@@ -1,53 +1,33 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React, { Component} from 'react';
+import { AppRegistry,View} from 'react-native';
+import TextBarAdd from './components/textbar_add.js'
+class FlexDims extends Component {
+  constructor(props) {
+  	super(props);
+    this.state = { items : [] , text : 'init'};
+  }
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+  onAdd(item) {
+    console.log("index.android.js: onAdd()");
+    console.log("The item is going to be added. ");
+  }
 
-class AwesomeProject1 extends Component {
   render() {
+    console.log("index.android.js: render()");
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+        // adding the top level TextBarAdd
+
+        <View style={{flex:1}}>
+          <View>
+            <TextBarAdd onAdd={this.onAdd}/>
+          </View>
+
+          <View>
+
+          </View>
+        </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('AwesomeProject1', () => AwesomeProject1);
+AppRegistry.registerComponent('AwesomeProject1', () => FlexDims);

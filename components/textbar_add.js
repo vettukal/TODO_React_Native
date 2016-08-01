@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, TextInput, View, Image } from 'react-native';
+import { AppRegistry, Text, TextInput, View, Image, TouchableOpacity } from 'react-native';
 import Button from 'react-native-button';
 
 class TextBarAdd extends Component {
   constructor(props) {
     super(props);
     this.state = {text: ''};
+  }
+
+  pressed() {
+    console.log("Pressed locally");
+  }
+
+  _handlePress(event) {
+    console.log('Pressed!');
   }
 
   render() {
@@ -21,14 +29,11 @@ class TextBarAdd extends Component {
           onChangeText={(text) => this.setState({text})}
         />
 
-        <View style={{flex:2, justifyContent: 'center', flexDirection:'row'}}>
-          <Button
-             style={{fontSize: 20, color: 'green'}}
-             styleDisabled={{color: 'red'}}
-             onPress={() => this.props.onAdd({text : 'Button press'})}>
-             Press Me!
-         </Button>
-        </View>
+        <Button
+          style={{borderWidth: 1, borderColor: 'blue', flex : 2}}
+          onPress={this._handlePress}>
+          Press Me!
+        </Button>
       </View>
 
 
