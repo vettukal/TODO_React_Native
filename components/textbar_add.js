@@ -9,15 +9,12 @@ class TextBarAdd extends Component {
 
   render() {
     return (
-      <View style={{padding: 10}}>
+      <View style={{padding: 10, flex:1, flexDirection:'row'}}>
         <TextInput
-          style={{height: 40}}
+          style={{height: 40, flex:2}}
           placeholder="Type here to translate!"
           onChangeText={(text) => this.setState({text})}
         />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
       </View>
     );
   }
