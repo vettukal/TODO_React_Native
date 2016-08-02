@@ -28,7 +28,11 @@ export default class TODOListItem extends Component {
           <Text style={{flex:8, alignItems: 'center',justifyContent: 'center'}}>{this.props.textData}</Text>
           <Button
             style={{borderWidth: 1, borderColor: 'blue', flex : 2, alignItems: 'center'}}
-            onPress={ () => this.props.onDelete(this.props.textData)
+            onPress={ () =>
+              {
+                this.setState({isChecked : false});
+                this.props.onDelete(this.props.textData)
+              }
             }
           >
             Done!

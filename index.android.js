@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { AppRegistry,View, ListView} from 'react-native';
 import TextBarAdd from './components/textbar_add.js';
-import TODOList from './components/TODOList.js';
+import TODOList from './components/todolist.js';
 class FlexDims extends Component {
 
   constructor(props) {
