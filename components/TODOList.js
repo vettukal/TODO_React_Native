@@ -3,17 +3,16 @@ import { AppRegistry, ListView, Text, View } from 'react-native';
 import TODOListItem from './todolist_item.js'
 
 export default class TODOList extends Component {
-  // Initialize the hardcoded data
+  // Initialize the data recieved from index.js
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows([
-        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
-      ])
+      dataSource: ds.cloneWithRows(this.props.items)
     };
   }
 
+  // Whenever the state is Modified in the index.js this must be called. 
   componentWillReceiveProps(nextProps) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     console.log(nextProps.items);
@@ -21,7 +20,6 @@ export default class TODOList extends Component {
       dataSource: ds.cloneWithRows(nextProps.items)
     };
   }
-
 
   render() {
     return (

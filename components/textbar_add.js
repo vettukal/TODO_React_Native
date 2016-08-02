@@ -38,8 +38,6 @@ class TextBarAdd extends Component {
           Add!
         </Button>
       </View>
-
-
     );
   }
 }

@@ -11,7 +11,8 @@ export default class TODOListItem extends Component {
 
 
     render(){
-      // if this does not work just try with Text
+      // making a view with text and Button
+      // TODO: add a checkbox 
       return(
         <View style={{flex:1, flexDirection:'row', alignItems: 'center', justifyContent: 'center' }}>
 

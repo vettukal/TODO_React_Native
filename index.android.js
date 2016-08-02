@@ -3,32 +3,28 @@ import { AppRegistry,View, ListView} from 'react-native';
 import TextBarAdd from './components/textbar_add.js';
 import TODOList from './components/TODOList.js';
 class FlexDims extends Component {
+
   constructor(props) {
   	super(props);
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    console.log("inside TODOList constructor "+this.props.items);
+    // Initialize a small set of TODOs
     this.state = {
       items : [
         'John Rambo', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
-      ] , text : 'init',
-      dataSource: ds.cloneWithRows([
-        'John Rambo', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
-      ])
+      ]
     };
 
   }
 
   onAdd(item) {
-    //const ds1 = this.state.ds;
-    console.log("index.android.js: onAdd()");
-    console.log("The item is going to be added. ");
     console.log(item.text);
     curItems = this.state.items;
     curItems.push(item.text);
     this.setState({items : curItems, text : ''});
   }
 
+  // This function is called when the Done button is clicked.
+  // Item is removed and page is re-rendered.
   onDelete(item) {
     let delindex = this.state.items.indexOf(item);
     console.log("deleteElem: delindex: "+delindex);
@@ -43,11 +39,11 @@ class FlexDims extends Component {
     console.log(this.state.items);
     return (
         // adding the top level TextBarAdd
-
         <View style={{flex:1}}>
           <View>
             <TextBarAdd onAdd={this.onAdd.bind(this)}/>
           </View>
+
 
           <View>
             <TODOList items={this.state.items} onDelete={this.onDelete.bind(this)}/>
